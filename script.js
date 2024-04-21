@@ -22,7 +22,7 @@ drawButton.addEventListener('click', function() {
     if (cards.length > 0) {
         const randomIndex = Math.floor(Math.random() * cards.length);
         const card = cards.splice(randomIndex, 1)[0];
-        cardResult.textContent = `Вы вытащили карту: ${card}`;
+        cardResult.textContent = `${card}`;
         cardImage.src = getImageFilename(card);
         cardImage.style.display = 'block';
 
