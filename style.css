@@ -2,6 +2,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
 .container {
@@ -10,16 +11,31 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 #cardResult {
     margin-top: 20px;
     font-size: 24px;
     color: #333;
+}
+
+img {
+    margin-top: 20px;
 }
