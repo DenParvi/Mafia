@@ -29,14 +29,14 @@ drawButton.addEventListener('click', function() {
         setTimeout(() => {
             cardResult.textContent = '';
             cardImage.style.display = 'none';
-        }, 5000); // 5000 миллисекунд или 10 секунд
+        }, 5000); // 5000 миллисекунд или 5 секунд
 
         if (cards.length === 0) {
             drawButton.disabled = true;
             cardResult.textContent += " (Это была последняя карта)";
             setTimeout(() => {
                 cardImage.style.display = 'none';
-            }, 10000);
+            }, 5000);
         }
     } else {
         cardResult.textContent = "Все карты разданы!";
