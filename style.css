@@ -17,7 +17,7 @@ body, html {
 
 button {
     padding: 15px 30px;
-    font-size: 18px;
+    font-size: 54px; /* Увеличен в три раза с 18px */
     background-color: #007BFF;
     color: white;
     border: none;
@@ -32,10 +32,12 @@ button:hover {
 
 #cardResult {
     margin-top: 20px;
-    font-size: 24px;
+    font-size: 100px; /* Увеличен в два раза с 24px */
     color: #333;
 }
 
 img {
     margin-top: 20px;
+    max-width: 300px; /* Ограничение размера изображения */
+    max-height: 300px;
 }
