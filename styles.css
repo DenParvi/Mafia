@@ -134,7 +134,7 @@ table {
     flex-direction: column; /* Ставим элементы в столбец */
     align-items: center; /* Выравнивание элементов по центру */
     width: 280px; /* Максимальная ширина контейнера */
-    height: 350px;
+    min-height: 350px;
     padding: 10px; /* Отступы внутри контейнера */
   }
 
