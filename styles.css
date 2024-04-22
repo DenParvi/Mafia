@@ -127,3 +127,9 @@ table {
   margin: 20px auto; /* Центрирование таблицы и отступ сверху и снизу */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень для лучшей видимости на разных фонах */
 }
+
+img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
