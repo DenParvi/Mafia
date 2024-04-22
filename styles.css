@@ -1,0 +1,129 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button {
+  background-color: #4CAF50; /* Зеленый цвет */
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 80%; /* Ширина кнопок */
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#backButton {
+  position: fixed;     /* Закрепление кнопки относительно окна браузера */
+  top: 20px;           /* Отступ сверху */
+  left: 50%;           /* Положение по центру по горизонтали */
+  transform: translateX(-50%); /* Смещение для точного позиционирования по центру */
+  width: 200px;        /* Контроль ширины кнопки */
+  height: 50px;        /* Высота кнопки */
+  padding: 10px 20px;  /* Внутренние отступы для текста кнопки */
+  background-color: #f8f9fa; /* Фоновый цвет кнопки */
+  border: 1px solid #ccc; /* Граница кнопки */
+  border-radius: 5px; /* Скругление углов кнопки */
+  font-size: 14px;    /* Размер шрифта */
+  text-align: center; /* Выравнивание текста по центру */
+  cursor: pointer;    /* Тип курсора при наведении на кнопку */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень для кнопки для лучшей видимости */
+  color: #333;        /* Цвет текста кнопки */
+}
+#backButton:hover {
+  background-color: #b9b4b4; /* Еще темнее */
+}
+
+#roleDisplay, #roleImage, #placeDisplay {
+  width: 100%; /* Ширина под текст и картинку */
+  text-align: center;
+  margin-top: 20px; /* Отступ сверху, чтобы не перекрываться с кнопкой */
+}
+
+#roleImage, #allPlacesButton {
+  max-height: 200px; /* Ограничение по высоте для картинок */
+  display: none; /* Изначально скрыты */
+}
+
+.role-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.place-number {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.mirnyj {
+  color: green; /* Зеленый для мирных жителей */
+}
+
+.mafia {
+  color: red; /* Красный для мафии */
+}
+
+.don {
+  color: darkred; /* Темно-красный для Дона */
+}
+
+.sherif {
+  color: blue; /* Синий для Шерифа */
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px 16px; /* Отступы внутри ячеек */
+  text-align: left; /* Выравнивание текста по левому краю */
+}
+
+th {
+  background-color: #f8f8f8; /* Светло-серый фон для заголовков */
+}
+
+/* Стили для таблицы с местами */
+table {
+  background-color: white; /* Белый фон */
+  padding: 20px; /* Отступы вокруг содержимого таблицы */
+  border-radius: 10px; /* Закругленные углы */
+  width: auto; /* Автоматическая ширина в зависимости от содержимого */
+  margin: 20px auto; /* Центрирование таблицы и отступ сверху и снизу */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень для лучшей видимости на разных фонах */
+}
