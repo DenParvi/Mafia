@@ -128,8 +128,19 @@ table {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень для лучшей видимости на разных фонах */
 }
 
-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column; /* Ставим элементы в столбец */
+    align-items: center; /* Выравнивание элементов по центру */
+    max-width: 100%; /* Максимальная ширина контейнера */
+    padding: 10px; /* Отступы внутри контейнера */
+  }
+
+  img {
+    width: 100%; /* Ширина изображения 100% от родительского блока */
+    height: auto; /* Высота автоматически подгоняется */
+    object-fit: contain; /* Содержимое сохраняет пропорции и полностью помещается в элемент */
+  }
 }
+
