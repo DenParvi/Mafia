@@ -150,7 +150,7 @@ table {
     flex-direction: column; /* Ставим элементы в столбец */
     align-items: center; /* Выравнивание элементов по центру */
     width: 600px; /* Максимальная ширина контейнера */
-    min-height: 550px;
+    min-height: 450px;
     padding: 10px; /* Отступы внутри контейнера */
   }
 
@@ -158,7 +158,7 @@ table {
     width: 100%; /* Ширина изображения 100% от родительского блока */
     object-fit: contain; /* Содержимое сохраняет пропорции и полностью помещается в элемент */
     padding-top: 60px;
-    scale: 2;
+    scale: 1.5;
   }
   .mirnyj, .mafia, .don, .sherif {
     font-size: 70px;
