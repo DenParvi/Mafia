@@ -128,7 +128,7 @@ table {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень для лучшей видимости на разных фонах */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .container {
     display: flex;
     flex-direction: column; /* Ставим элементы в столбец */
@@ -144,3 +144,24 @@ table {
   }
 }
 
+@media (min-width: 760px) and (max-width: 1025px) {
+  .container {
+    display: flex;
+    flex-direction: column; /* Ставим элементы в столбец */
+    align-items: center; /* Выравнивание элементов по центру */
+    width: 600px; /* Максимальная ширина контейнера */
+    min-height: 550px;
+    padding: 10px; /* Отступы внутри контейнера */
+  }
+
+  img {
+    width: 100%; /* Ширина изображения 100% от родительского блока */
+    object-fit: contain; /* Содержимое сохраняет пропорции и полностью помещается в элемент */
+    padding-top: 60px;
+    scale: 2;
+  }
+  .mirnyj, .mafia, .don, .sherif {
+    font-size: 70px;
+  }
+  
+}
