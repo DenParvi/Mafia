@@ -1,0 +1,80 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    padding: 2%; /* Процентный паддинг для гибкости */
+    width: 96%; /* Обеспечиваем небольшой отступ по бокам */
+    height: 96%; /* Обеспечиваем небольшой отступ сверху и снизу */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 2vw; /* Используем vw для задания зазора */
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Ограничиваем высоту сетки */
+    margin-bottom: 1vh; /* Минимальный отступ для кнопки */
+}
+
+.card {
+    background-color: #ccc;
+    height: 15vh; /* Высота карточек как процент от высоты видового окна */
+    aspect-ratio: 2 / 3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+@media (orientation: portrait) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (orientation: landscape) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+button {
+    padding: 1vh 2vw;
+    font-size: 2vh;
+    margin-top: 1vh; /* Отступ для кнопки */
+}
+
+table {
+    display: none; /* Скрыть таблицу изначально */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1vh;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.5vh 1vw;
+    text-align: left;
+    font-size: 1.5vh;
+}
+
+#status-text {
+    font-size: 36px; /* Увеличиваем размер шрифта для лучшей читаемости */
+    color: #333; /* Тёмно-серый цвет текста для контраста */
+    margin-bottom: 20px; /* Добавляем отступ снизу для разделения текста и карточек */
+    text-align: center; /* Выравниваем текст по центру */
+    font-weight: bold; /* Делаем текст жирным для лучшего восприятия */
+}
