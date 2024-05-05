@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusText.textContent = "Выберите карту";
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
+                        statusText.style.display = 'none'; // Добавьте эту строку здесь
                     }
                 }, 3000);
             }
