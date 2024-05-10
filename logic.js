@@ -20,7 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleOrder = [];
 
     cards.forEach((card, index) => {
-        card.style.backgroundImage = `url('images/cover.jpg')`;
+        // Изменяем обложку для карты с ролью "Шериф"
+        if (shuffledRoles[index].role === 'Шериф') {
+            card.style.backgroundImage = `url('images/cover2.jpg')`;
+        } else {
+            card.style.backgroundImage = `url('images/cover.jpg')`;
+        }
+
         card.addEventListener('click', () => {
             if (!card.classList.contains('flipped')) {
                 card.classList.add('flipped');
@@ -33,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusText.textContent = "Выберите карту";
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
-                        statusText.style.display = 'none'; // Добавьте эту строку здесь
+                        statusText.style.display = 'none';
                     }
                 }, 3000);
             }
