@@ -59,7 +59,7 @@ button {
 
 table {
     display: none; /* Скрыть таблицу изначально */
-    width: 100%;
+    width: 300px;
     border-collapse: collapse;
     margin-top: 1vh;
 }
@@ -69,6 +69,7 @@ th, td {
     padding: 0.5vh 1vw;
     text-align: left;
     font-size: 1.5vh;
+    font-size: 36px;
 }
 
 #status-text {

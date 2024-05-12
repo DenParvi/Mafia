@@ -20,9 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleOrder = [];
 
     cards.forEach((card, index) => {
-        // Изменяем обложку для карты с ролью "Шериф"
+        // Коммент
         if (shuffledRoles[index].role === 'Шериф') {
             card.style.backgroundImage = `url('images/cover2.jpg')`;
+        } else {
+            card.style.backgroundImage = `url('images/cover.jpg')`;
+        }
+
+        if (shuffledRoles[index].role === 'Дон') {
+            card.style.backgroundImage = `url('images/cover3.jpg')`;
+        } else {
+            card.style.backgroundImage = `url('images/cover.jpg')`;
+        }
+
+        if (shuffledRoles[index].role === 'Мафия') {
+            card.style.backgroundImage = `url('images/cover4.jpg')`;
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
         }
