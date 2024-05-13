@@ -22,14 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach((card, index) => {
         // Коммент
         if (shuffledRoles[index].role === 'Шериф') {
-            card.style.backgroundImage = `url('images/cover2.jpg')`;
-            //card.style.backgroundImage = `url('images/cover2met.jpg')`;
+            //card.style.backgroundImage = `url('images/cover2.jpg')`;
+            card.style.backgroundImage = `url('images/cover2met.jpg')`;
         } else if (shuffledRoles[index].role === 'Дон') {
-            card.style.backgroundImage = `url('images/cover3.jpg')`;
-            //card.style.backgroundImage = `url('images/cover3met.jpg')`;
+            //card.style.backgroundImage = `url('images/cover3.jpg')`;
+            card.style.backgroundImage = `url('images/cover3met.jpg')`;
         } else if (shuffledRoles[index].role === 'Мафия') {
-            card.style.backgroundImage = `url('images/cover4.jpg')`;
-            //card.style.backgroundImage = `url('images/cover4met.jpg')`;
+            //card.style.backgroundImage = `url('images/cover4.jpg')`;
+            card.style.backgroundImage = `url('images/cover4met.jpg')`;
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
         }
