@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.backgroundImage = `url('images/cover3.jpg')`;
             //card.style.backgroundImage = `url('images/cover3met.jpg')`;
         } else if (shuffledRoles[index].role === 'Мафия') {
-            //card.style.backgroundImage = `url('images/cover4.jpg')`;
-            card.style.backgroundImage = `url('images/cover4met.jpg')`;
+            card.style.backgroundImage = `url('images/cover4.jpg')`;
+            //card.style.backgroundImage = `url('images/cover4met.jpg')`;
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
         }
