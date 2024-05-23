@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудио-плеер</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #3700b3;
+        }
+
+        .text-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .text-section p {
+            font-size: 18px;
+        }
+
+        .play-button {
+            background-color: #03a9f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .play-button:hover {
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="playAudio('audio5_6.mp3')">Для 5-6 игроков. Мужской</button>
+    <button class="button" onclick="playAudio('audio7_10.mp3')">Для 7-10 игроков. Мужской</button>
+    <button class="button" onclick="playText('Все закрывают свои глаза. Фашист и Гитлер открывают глаза и запоминают друг друга. Фашисты продолжают смотреть друг на друга. Фашисты закрывают свои глаза. Все ждут две секунды и открывают глаза')">
+        Для 5-6 игроков. Женский</button>
+    <button class="button" onclick="playText('Все закрывают свои глаза. Фашисты, но не Гитлер, открывают глаза и запоминают друг друга. Гитлер продолжает держать глаза закрытыми, но поднимает руку, информируя остальных. Фашисты продолжают смотреть друг на друга. Фашисты закрывают свои глаза. Все ждут две секунды и открывают глаза.')">
+        Для 7-10 игроков. Женский</button>
+
+    
+
+    <audio id="audio-player" controls style="display:none;"></audio>
+
+    <script>
+        function playAudio(file) {
+            var audio = document.getElementById('audio-player');
+            audio.src = file;
+            audio.play();
+        }
+
+        function playText(text) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+            msg.lang = 'ru-RU';
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+</body>
+</html>
