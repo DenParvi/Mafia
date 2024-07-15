@@ -14,7 +14,12 @@ document.getElementById('placeButton').addEventListener('click', function() {
     placesLeft--;
     document.getElementById('placesLeft').textContent = 'Осталось: ' + placesLeft;
     const placeDisplay = document.getElementById('placeDisplay');
-    placeDisplay.textContent = 'Место №' + place;
+    if (place === 11) {
+      placeDisplay.textContent = 'Ведущий';
+    } else {
+      placeDisplay.textContent = 'Место №' + place;
+    }
+    
     placeDisplay.classList.add('place-number'); // Добавляем класс для стиля
     const inputText = document.getElementById('textInput').value;
     placesWithTexts.push({place: place, text: inputText}); // Сохраняем место и текст
@@ -31,7 +36,12 @@ document.getElementById('allPlacesButton').addEventListener('click', function() 
   placesWithTexts.sort((a, b) => a.place - b.place); // Сортировка мест перед выводом
   let output = '<table><tr><th>Место</th><th>Текст</th></tr>';
   placesWithTexts.forEach((item) => {
+   // Заменяем "Место №11" на "Ведущий"
+   if (item.place === 11) {
+    output += `<tr><td>Ведущий</td><td>${item.text}</td></tr>`;
+  } else {
     output += `<tr><td>Место №${item.place}</td><td>${item.text}</td></tr>`;
+  }
   });
   output += '</table>';
 
