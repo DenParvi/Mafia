@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Генерация игры</title>
+<title>Генерация места</title>
 <link rel="stylesheet" href="styles.css">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -24,12 +24,14 @@
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+<button id="backButton" onclick="window.location.href='index.html'">На главную</button>
 <div class="container">
-  <button onclick="window.location.href='game.html'">Карты</button>
-  <button onclick="window.location.href='role.html'">Генерация роли</button>
-  <button onclick="window.location.href='place.html'">Генерация места</button>
-  <button onclick="window.location.href='place_leader.html'">Место и ведущий</button>
-  <button onclick="window.location.href='Hitler.html'">Гитлер</button>
+  <div id="placesLeft">Осталось: 10</div>
+  <input type="text" id="textInput" placeholder="Ваш ник" maxlength="12">
+  <button id="placeButton">Получить место</button>
+  <div id="placeDisplay"></div>
+  <button id="allPlacesButton" style="display: none;">Все места</button>
 </div>
+<script src="placeScript.js"></script>
 </body>
 </html>
