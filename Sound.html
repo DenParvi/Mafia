@@ -4,78 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Голос Мафии</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .button {
-            background-color: #6200ea;
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            margin: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 24px;
-            transition: background-color 0.3s;
-            width: 200px;
-        }
-
-        .button.active {
-            background-color: green;
-        }
-
-        .control-buttons {
-            display: flex;
-            margin-left: 10px;
-        }
-
-        .control-button {
-            background-color: #03a9f4;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .control-button:hover {
-            background-color: #0288d1;
-        }
-
-        .control-button svg {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-        .timer {
-            font-size: 24px;
-            margin-top: 10px;
-            margin-left: 20px;
-        }
-
-        .button-container {
-            display: flex;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styles_sound.css">
+    <audio id="audio-player" preload="auto"></audio>
 </head>
 <body>
     <div class="button-container">
@@ -173,45 +103,48 @@
         var timerInterval;
         var currentTimer;
         var currentButton;
-
+    
         function playAudio(button, file) {
             if (currentButton) {
                 currentButton.classList.remove('active');
                 currentButton.style.backgroundColor = '#03a9f4'; // Вернуть исходный цвет кнопки
             }
-
+    
             currentButton = button;
             currentButton.classList.add('active');
             currentButton.style.backgroundColor = 'green'; // Изменить цвет активной кнопки
-
-            audio.src = file;
+    
+            if (audio.src !== file) {
+                audio.src = file;
+                audio.load(); // Загрузить новый аудиофайл
+            }
             audio.play();
             resetTimer();
             startTimer();
-
+    
             audio.onended = function() {
                 currentButton.classList.remove('active');
                 currentButton.style.backgroundColor = '#03a9f4'; // Изменить цвет кнопки на светло-синий
             };
         }
-
+    
         function pauseAudio() {
             audio.pause();
             clearInterval(timerInterval);
         }
-
+    
         function startAudio() {
             audio.play();
             startTimer();
         }
-
+    
         function resetAudio() {
             audio.pause();
             audio.currentTime = 0;
             clearInterval(timerInterval);
             updateTimerDisplay('00:00');
         }
-
+    
         function startTimer() {
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
@@ -221,23 +154,24 @@
                 updateTimerDisplay(timeString);
             }, 1000);
         }
-
+    
         function resetTimer() {
             clearInterval(timerInterval);
             updateTimerDisplay('00:00');
         }
-
+    
         function updateTimerDisplay(time) {
             if (currentTimer) {
                 currentTimer.textContent = time;
             }
         }
-
+    
         document.querySelectorAll('.button-container').forEach((container, index) => {
             container.querySelector('.button').addEventListener('click', () => {
                 currentTimer = document.getElementById(`timer-0${index + 1}`);
             });
         });
     </script>
+    
 </body>
 </html>
