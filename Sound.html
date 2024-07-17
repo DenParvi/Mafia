@@ -9,104 +9,43 @@
 <body>
     <div class="button-container">
         <button class="button" onclick="playAudio(this, '01_Приветствие.mp3')">Приветствие</button>
-        <div class="control-buttons">
-            <button class="control-button" onclick="pauseAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="startAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="resetAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 6h12v12H6z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="timer" id="timer-01">00:00</div>
-    </div>
-
-    <div class="button-container">
         <button class="button" onclick="playAudio(this, '02_Раздача.wav')">Раздача</button>
-        <div class="control-buttons">
-            <button class="control-button" onclick="pauseAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="startAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="resetAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 6h12v12H6z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="timer" id="timer-02">00:00</div>
-    </div>
-
-    <div class="button-container">
         <button class="button" onclick="playAudio(this, '03_Договорка.wav')">Договорка</button>
-        <div class="control-buttons">
-            <button class="control-button" onclick="pauseAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="startAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="resetAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 6h12v12H6z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="timer" id="timer-03">00:00</div>
+        <button class="button" onclick="playAudio(this, '04_Обычная ночь.wav')">Отстрел</button>
     </div>
 
-    <div class="button-container">
-        <button class="button" onclick="playAudio(this, '04_Обычная ночь.wav')">Отстрел</button>
-        <div class="control-buttons">
-            <button class="control-button" onclick="pauseAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="startAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            </button>
-            <button class="control-button" onclick="resetAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 6h12v12H6z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="timer" id="timer-04">00:00</div>
+    <div class="control-buttons">
+        <button class="control-button" onclick="startAudio()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </button>
+        <button class="control-button" onclick="pauseAudio()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+            </svg>
+        </button>
+        <button class="control-button" onclick="resetAudio()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 6h12v12H6z"/>
+            </svg>
+        </button>
     </div>
+
+    <div class="timer" id="timer-display">00:00</div>
 
     <audio id="audio-player" controls style="display:none;"></audio>
 
     <script>
         var audio = document.getElementById('audio-player');
         var timerInterval;
-        var currentTimer;
         var currentButton;
+        var timerDisplay = document.getElementById('timer-display');
     
         function playAudio(button, file) {
             if (currentButton) {
                 currentButton.classList.remove('active');
-                currentButton.style.backgroundColor = '#03a9f4'; // Вернуть исходный цвет кнопки
+                currentButton.style.backgroundColor = '#6200ea'; // Вернуть исходный цвет кнопки
             }
     
             currentButton = button;
@@ -123,7 +62,7 @@
     
             audio.onended = function() {
                 currentButton.classList.remove('active');
-                currentButton.style.backgroundColor = '#03a9f4'; // Изменить цвет кнопки на светло-синий
+                currentButton.style.backgroundColor = '#6200ea'; // Изменить цвет кнопки на исходный
             };
         }
     
@@ -162,17 +101,8 @@
         }
     
         function updateTimerDisplay(time) {
-            if (currentTimer) {
-                currentTimer.textContent = time;
-            }
+            timerDisplay.textContent = time;
         }
-    
-        document.querySelectorAll('.button-container').forEach((container, index) => {
-            container.querySelector('.button').addEventListener('click', () => {
-                currentTimer = document.getElementById(`timer-0${index + 1}`);
-            });
-        });
     </script>
-    
 </body>
 </html>
