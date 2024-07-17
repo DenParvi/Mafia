@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Голос Мафии</title>
     <link rel="stylesheet" href="styles_sound.css">
-    <audio id="audio-player" preload="auto"></audio>
 </head>
 <body>
     <div class="button-container">
@@ -114,13 +113,13 @@
             currentButton.classList.add('active');
             currentButton.style.backgroundColor = 'green'; // Изменить цвет активной кнопки
     
-            if (audio.src !== file) {
+            if (audio.src !== file || audio.paused) {
                 audio.src = file;
                 audio.load(); // Загрузить новый аудиофайл
+                audio.play();
+                resetTimer();
+                startTimer();
             }
-            audio.play();
-            resetTimer();
-            startTimer();
     
             audio.onended = function() {
                 currentButton.classList.remove('active');
@@ -134,8 +133,10 @@
         }
     
         function startAudio() {
-            audio.play();
-            startTimer();
+            if (audio.paused) {
+                audio.play();
+                startTimer();
+            }
         }
     
         function resetAudio() {
