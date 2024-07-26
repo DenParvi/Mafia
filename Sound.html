@@ -25,12 +25,35 @@
 </head>
 <body>
     <div class="button-container">
-        <button class="button" onclick="playAudio(this, '01_Приветствие.mp3')">Приветствие</button>
-        <!--<button class="button" onclick="playAudio(this, '02_Раздача.wav')">Раздача</button>-->
-        <!--<button class="button" onclick="playAudio(this, '03_Договорка.wav')">Договорка</button>-->
-        <button class="button" onclick="playAudio(this, '05_раздача и договорка.wav')">Раздача + договорка</button>
-        <button class="button" onclick="playAudio(this, '04_Обычная ночь.wav')">Отстрел</button>
+        <div class="button-row">
+            <span class="music-title">Приветствие</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, '01_Приветствие_1.mp3')">1</button>
+                <!--<button class="button" onclick="playAudio(this, '01_Приветствие_2.mp3')">2</button>-->
+                <!--<button class="button" onclick="playAudio(this, '01_Приветствие_3.mp3')">3</button>-->
+            </div>
+        </div>
+        <div class="button-row">
+            <span class="music-title">Раздача и договорка</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, '05_раздача и договорка_1.wav')">1</button>
+                <!--<button class="button" onclick="playAudio(this, '05_раздача и договорка_2.wav')">2</button>-->
+                <!--<button class="button" onclick="playAudio(this, '05_раздача и договорка_3.wav')">3</button>-->
+            </div>
+        </div>
+        <div class="button-row">
+            <span class="music-title">Отстрел</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, '04_Обычная ночь_1.wav')">1</button>
+                <!--<button class="button" onclick="playAudio(this, '04_Обычная ночь_2.wav')">2</button>-->
+                <!--<button class="button" onclick="playAudio(this, '04_Обычная ночь_3.wav')">3</button>-->
+            </div>
+        </div>
     </div>
+    
+    
+    
+    
 
     <div class="control-buttons">
         <button class="control-button" onclick="startAudio()">
