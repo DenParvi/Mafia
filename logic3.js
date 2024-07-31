@@ -20,15 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleOrder = [];
 
     cards.forEach((card, index) => {
-        // Коммент
         if (shuffledRoles[index].role === 'Шериф') {
-            //card.style.backgroundImage = `url('images/cover2.jpg')`;
             card.style.backgroundImage = `url('images/cover2met.jpg')`;
         } else if (shuffledRoles[index].role === 'Дон') {
-            //card.style.backgroundImage = `url('images/cover3.jpg')`;
             card.style.backgroundImage = `url('images/cover3met.jpg')`;
         } else if (shuffledRoles[index].role === 'Мафия') {
-            //card.style.backgroundImage = `url('images/cover4.jpg')`;
             card.style.backgroundImage = `url('images/cover4met.jpg')`;
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
@@ -71,4 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('home-button').addEventListener('click', () => {
         location.href = 'index.html';
     });
+
+    // Новая функция для изменения обложек всех карт спустя 11 секунд
+    setTimeout(() => {
+        cards.forEach((card) => {
+            card.style.backgroundImage = "url('images/cover.jpg')";
+        });
+    }, 11000); // 11 секунд = 11000 миллисекунд
 });
