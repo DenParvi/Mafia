@@ -73,5 +73,5 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach((card) => {
             card.style.backgroundImage = "url('images/cover.jpg')";
         });
-    }, 11000); // 11 секунд = 11000 миллисекунд
+    }, 11000); 
 });
