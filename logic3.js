@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Новая функция для изменения обложек всех карт спустя 11 секунд
-    setTimeout(() => {
-        cards.forEach((card) => {
-            card.style.backgroundImage = "url('images/cover.jpg')";
-        });
-    }, 11000); 
+    //setTimeout(() => {
+    //   cards.forEach((card) => {
+    //        card.style.backgroundImage = "url('images/cover.jpg')";
+    //    });
+    //}, 11000); 
 });
