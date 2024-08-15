@@ -9,7 +9,7 @@
 <script type="text/javascript" >
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    for (let j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
   
@@ -40,6 +40,7 @@
                 <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_1.wav')">1</button>
                 <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_2.wav')">2</button>
                 <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_3.wav')">3</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_4.wav')">4</button>
             </div>
         </div>
         <div class="button-row">
@@ -53,8 +54,9 @@
         <div class="button-row">
             <span class="music-title">Таймер</span>
             <div class="button-column">
-                <button class="button" onclick="playAudio(this, 'audio/30сек.wav')">30</button>
-                <button class="button" onclick="playAudio(this, 'audio/60сек.wav')">60</button>
+                 <!--<button class="button" onclick="playAudio(this, 'audio/30сек.wav')">30</button>-->
+                <button class="button" onclick="startTimerWithSounds(startTime30)">30</button>
+                <button class="button" onclick="startTimerWithSounds(startTime60)">60</button>
             </div>
         </div>
     </div>
@@ -86,10 +88,13 @@
     <audio id="audio-player" controls style="display:none;"></audio>
 
     <script>
-        var audio = document.getElementById('audio-player');
-        var timerInterval;
-        var currentButton;
-        var timerDisplay = document.getElementById('timer-display');
+        let audio = document.getElementById('audio-player');
+        let timerInterval;
+        let currentButton;
+        let timerDisplay = document.getElementById('timer-display');
+        let startTime60 = 60;
+        let startTime30 = 30;
+
     
         function playAudio(button, file) {
     if (currentButton) {
@@ -148,9 +153,9 @@
         function startTimer() {
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
-                var minutes = Math.floor(audio.currentTime / 60);
-                var seconds = Math.floor(audio.currentTime % 60);
-                var timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                let minutes = Math.floor(audio.currentTime / 60);
+                let seconds = Math.floor(audio.currentTime % 60);
+                let timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
                 updateTimerDisplay(timeString);
             }, 1000);
         }
@@ -162,6 +167,33 @@
     
         function updateTimerDisplay(time) {
             timerDisplay.textContent = time;
+        }
+
+        
+        function startTimerWithSounds(time) {
+            clearInterval(timerInterval); 
+            let timeLeft = time;
+
+            updateTimerDisplay(timeLeft);
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay(timeLeft);
+
+                if (timeLeft === 11) {
+                    playAudioFile('audio/10 секунд.mp3'); 
+                } else if (timeLeft === 0) {
+                    clearInterval(timerInterval);
+                    playAudioFile('audio/время.wav'); 
+                }
+
+            }, 1000);
+        }
+
+        function playAudioFile(file) {
+            audio.src = file;
+            audio.load();
+            audio.play();
         }
     </script>
 </body>
