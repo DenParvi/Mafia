@@ -85,7 +85,7 @@
 
     <div class="timer" id="timer-display">00:00</div>
 
-    <audio id="audio-player" controls style="display:none;" preload="auto"></audio>
+    <audio id="audio-player" controls style="display:none;"></audio>
 
     <script>
         let audio = document.getElementById('audio-player');
@@ -109,7 +109,6 @@
     // Загружаем новый файл, если он отличается от текущего
     if (audio.src !== file) {
         audio.src = file;
-        audio.preload = "auto";
         audio.load(); // Загружаем новый аудиофайл
 
         audio.oncanplaythrough = function() { 
@@ -117,14 +116,6 @@
             resetTimer();
             startTimer();
         };
-        audio.ontimeupdate = function() {
-                    if (audio.buffered.length) {
-                        let bufferedEnd = audio.buffered.end(audio.buffered.length - 1);
-                        if (bufferedEnd - audio.currentTime < 5) {
-                            audio.pause();
-                        }
-                    }
-                };
     } else if (audio.paused) {
         audio.play(); // Если аудиофайл уже загружен, просто продолжаем воспроизведение
         startTimer();
@@ -183,11 +174,11 @@
             clearInterval(timerInterval); 
             let timeLeft = time;
 
-            updateTimerDisplay(timeLeft.toString().padStart(2, '0') + ":00");
+            updateTimerDisplay(timeLeft);
 
             timerInterval = setInterval(() => {
                 timeLeft--;
-                updateTimerDisplay(timeLeft.toString().padStart(2, '0') + ":00");
+                updateTimerDisplay(timeLeft);
 
                 if (timeLeft === 11) {
                     playAudioFile('audio/10 секунд.mp3'); 
@@ -201,7 +192,6 @@
 
         function playAudioFile(file) {
             audio.src = file;
-            audio.preload = "auto";
             audio.load();
             audio.play();
         }
