@@ -55,15 +55,11 @@
             <span class="music-title">Таймер</span>
             <div class="button-column">
                  <!--<button class="button" onclick="playAudio(this, 'audio/30сек.mp3')">30</button>-->
-                <button class="button" onclick="startTimerWithSounds(startTime30)">30</button>
-                <button class="button" onclick="startTimerWithSounds(startTime60)">60</button>
-            </div>
+                 <button class="button" onclick="startTimerWithSounds(30)">30</button>
+                 <button class="button" onclick="startTimerWithSounds(60)">60</button>
+             </div>
         </div>
-    </div>
-    
-    
-    
-    
+    </div>    
 
     <div class="control-buttons">
         <button class="control-button" onclick="startAudio()">
@@ -84,117 +80,124 @@
     </div>
 
     <div class="timer" id="timer-display">00:00</div>
+    <div class="timer" id="sound-timer-display">00:00</div>
 
     <audio id="audio-player" controls style="display:none;"></audio>
 
     <script>
         let audio = document.getElementById('audio-player');
         let timerInterval;
+        let timerIntervalSound;
         let currentButton;
         let timerDisplay = document.getElementById('timer-display');
-        let startTime60 = 60;
-        let startTime30 = 30;
-
+        let soundTimerDisplay = document.getElementById('sound-timer-display');
+        let soundTimeLeft;
     
         function playAudio(button, file) {
-    if (currentButton) {
-        currentButton.classList.remove('active');
-        currentButton.style.backgroundColor = '#6200ea'; // Вернуть исходный цвет кнопки
-    }
+            if (currentButton) {
+                currentButton.classList.remove('active');
+                currentButton.style.backgroundColor = '#6200ea';
+            }
 
-    currentButton = button;
-    currentButton.classList.add('active');
-    currentButton.style.backgroundColor = 'green'; // Изменить цвет активной кнопки
+            currentButton = button;
+            currentButton.classList.add('active');
+            currentButton.style.backgroundColor = 'green';
 
-    // Загружаем новый файл, если он отличается от текущего
-    if (audio.src !== file) {
-        audio.src = file;
-        audio.load(); // Загружаем новый аудиофайл
-
-        audio.oncanplaythrough = function() { 
-            audio.play(); // Автоматически начинаем воспроизведение
-            resetTimer();
-            startTimer();
-        };
-    } else if (audio.paused) {
-        audio.play(); // Если аудиофайл уже загружен, просто продолжаем воспроизведение
-        startTimer();
-    }
-
-    audio.onended = function() {
-        currentButton.classList.remove('active');
-        currentButton.style.backgroundColor = '#6200ea'; // Изменить цвет кнопки на исходный
-    };
-}
-
-    
-        function pauseAudio() {
-            audio.pause();
-            clearInterval(timerInterval);
-        }
-    
-        function startAudio() {
-            if (audio.paused) {
+            if (audio.src !== file) {
+                audio.src = file;
+                audio.load();
+                audio.oncanplaythrough = function() { 
+                    audio.play();
+                    resetTimer();
+                    startTimer();
+                };
+            } else if (audio.paused) {
                 audio.play();
                 startTimer();
             }
+
+            audio.onended = function() {
+                currentButton.classList.remove('active');
+                currentButton.style.backgroundColor = '#6200ea';
+            };
         }
     
-        function resetAudio() {
+        function pauseAudio() {
+    audio.pause();
+    clearInterval(timerInterval);
+    clearInterval(timerIntervalSound);  // Остановить второй таймер
+}
+
+        function startAudio() {
+    if (audio.paused) {
+        audio.play();
+        startTimer();
+    }
+    if (soundTimeLeft > 0) {  // Запуск второго таймера с оставшегося времени
+        startSoundTimer(soundTimeLeft);
+    }
+}
+    
+function resetAudio() {
     audio.pause();
     audio.currentTime = 0;
     clearInterval(timerInterval);
+    clearInterval(timerIntervalSound);
+    soundTimeLeft = 0;  // Сбросить оставшееся время на втором таймере
     updateTimerDisplay('00:00');
-
-    // Сбросить событие oncanplaythrough, чтобы музыка не воспроизводилась заново
+    updateSoundTimerDisplay('00:00');
     audio.oncanplaythrough = null;
 }
     
-        function startTimer() {
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                let minutes = Math.floor(audio.currentTime / 60);
-                let seconds = Math.floor(audio.currentTime % 60);
-                let timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-                updateTimerDisplay(timeString);
-            }, 1000);
-        }
+function startTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        let minutes = Math.floor(audio.currentTime / 60);
+        let seconds = Math.floor(audio.currentTime % 60);
+        let timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+        updateTimerDisplay(timeString);
+    }, 1000);
+}
     
-        function resetTimer() {
-            clearInterval(timerInterval);
-            updateTimerDisplay('00:00');
-        }
+function resetTimer() {
+    clearInterval(timerInterval);
+    updateTimerDisplay('00:00');
+}
     
         function updateTimerDisplay(time) {
             timerDisplay.textContent = time;
         }
-
         
         function startTimerWithSounds(time) {
-            clearInterval(timerInterval); 
-            let timeLeft = time;
+    clearInterval(timerIntervalSound);
+    soundTimeLeft = time;  // Сохранить начальное время в переменную
+    updateSoundTimerDisplay(soundTimeLeft);
+    startSoundTimer(soundTimeLeft);
+}
 
-            updateTimerDisplay(timeLeft);
+function startSoundTimer(time) {
+    timerIntervalSound = setInterval(() => {
+        soundTimeLeft--;
+        updateSoundTimerDisplay(soundTimeLeft);
 
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay(timeLeft);
-
-                if (timeLeft === 11) {
-                    playAudioFile('audio/10 секунд.mp3'); 
-                } else if (timeLeft === 0) {
-                    clearInterval(timerInterval);
-                    playAudioFile('audio/время.mp3'); 
-                }
-
-            }, 1000);
+        if (soundTimeLeft === 11) {
+            playAudioFile('audio/10 секунд.mp3'); 
+        } else if (soundTimeLeft === 0) {
+            clearInterval(timerIntervalSound);
+            playAudioFile('audio/время.mp3'); 
         }
+    }, 1000);
+}
 
-        function playAudioFile(file) {
-            audio.src = file;
-            audio.load();
-            audio.play();
-        }
+function updateSoundTimerDisplay(time) {
+    soundTimerDisplay.textContent = `Таймер: ${time}`;
+}
+
+function playAudioFile(file) {
+    audio.src = file;
+    audio.load();
+    audio.play();
+}
     </script>
 </body>
 </html>
