@@ -30,31 +30,31 @@
             <span class="music-title">Приветствие</span>
             <div class="button-column">
                 <button class="button" onclick="playAudio(this, 'audio/01_Приветствие_1.mp3')">1</button>
-                <button class="button" onclick="playAudio(this, 'audio/01_Приветствие2.wav')">2</button>
+                <button class="button" onclick="playAudio(this, 'audio/01_Приветствие2.mp3')">2</button>
                 <!--<button class="button" onclick="playAudio(this, '01_Приветствие_3.mp3')">3</button>-->
             </div>
         </div>
         <div class="button-row">
             <span class="music-title">Раздача и договорка</span>
             <div class="button-column">
-                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_1.wav')">1</button>
-                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_2.wav')">2</button>
-                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_3.wav')">3</button>
-                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_4.wav')">4</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_1.mp3')">1</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_2.mp3')">2</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_3.mp3')">3</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_4.mp3')">4</button>
             </div>
         </div>
         <div class="button-row">
             <span class="music-title">Отстрел</span>
             <div class="button-column">
                 <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_1.mp3')">1</button>
-                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_2.wav')">2</button>
-                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_3.wav')">3</button>
+                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_2.mp3')">2</button>
+                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_3.mp3')">3</button>
             </div>
         </div>
         <div class="button-row">
             <span class="music-title">Таймер</span>
             <div class="button-column">
-                 <!--<button class="button" onclick="playAudio(this, 'audio/30сек.wav')">30</button>-->
+                 <!--<button class="button" onclick="playAudio(this, 'audio/30сек.mp3')">30</button>-->
                 <button class="button" onclick="startTimerWithSounds(startTime30)">30</button>
                 <button class="button" onclick="startTimerWithSounds(startTime60)">60</button>
             </div>
@@ -184,7 +184,7 @@
                     playAudioFile('audio/10 секунд.mp3'); 
                 } else if (timeLeft === 0) {
                     clearInterval(timerInterval);
-                    playAudioFile('audio/время.wav'); 
+                    playAudioFile('audio/время.mp3'); 
                 }
 
             }, 1000);
