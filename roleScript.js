@@ -29,7 +29,7 @@ const roleButton = document.getElementById('roleButton');
 roleButton.addEventListener('click', handleRole);
 
 function handleRole() {
-  if (roles.length > 0) {
+  if (roles.length == 0) {
     const role = roles.pop();
     allRoles.push(role); // Сохраняем выданные роли в массив
     const roleDisplay = document.getElementById('roleDisplay');
