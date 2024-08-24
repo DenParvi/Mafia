@@ -11,7 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         { file: 'images/дон.jpg', role: 'Дон' },
         { file: 'images/шериф.jpg', role: 'Шериф' }
     ];
-    const shuffledRoles = roles.sort(() => Math.random() - 0.5);
+
+    // Реализация алгоритма Фишера-Йетса для перемешивания массива
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    const shuffledRoles = shuffle(roles);
     const cards = document.querySelectorAll('.card');
     const grid = document.querySelector('.grid');
     const leaderButton = document.getElementById('leader-button');
@@ -20,16 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleOrder = [];
 
     cards.forEach((card, index) => {
-        // Коммент
         if (shuffledRoles[index].role === 'Шериф') {
             card.style.backgroundImage = `url('images/cover2.jpg')`;
-            //card.style.backgroundImage = `url('images/cover2met.jpg')`;
         } else if (shuffledRoles[index].role === 'Дон') {
-            //card.style.backgroundImage = `url('images/cover3.jpg')`;
             card.style.backgroundImage = `url('images/cover3met.jpg')`;
         } else if (shuffledRoles[index].role === 'Мафия') {
             card.style.backgroundImage = `url('images/cover4.jpg')`;
-            //card.style.backgroundImage = `url('images/cover4met.jpg')`;
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
         }

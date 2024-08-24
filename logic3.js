@@ -11,7 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         { file: 'images/дон.jpg', role: 'Дон' },
         { file: 'images/шериф.jpg', role: 'Шериф' }
     ];
-    const shuffledRoles = roles.sort(() => Math.random() - 0.5);
+
+    // Реализация алгоритма Фишера-Йетса для перемешивания массива
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    const shuffledRoles = shuffle(roles);
     const cards = document.querySelectorAll('.card');
     const grid = document.querySelector('.grid');
     const leaderButton = document.getElementById('leader-button');
@@ -67,11 +77,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('home-button').addEventListener('click', () => {
         location.href = 'index.html';
     });
-
-    // Новая функция для изменения обложек всех карт спустя 11 секунд
-    //setTimeout(() => {
-    //   cards.forEach((card) => {
-    //        card.style.backgroundImage = "url('images/cover.jpg')";
-    //    });
-    //}, 11000); 
 });
