@@ -1,15 +1,15 @@
 // Инициализация массива ролей
 const roles = [
   { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
-  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
-  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
-  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
-  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
-  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
   { name: "Мафия", image: "images/мафия.jpg", class: "mafia" },
-  { name: "Мафия", image: "images/мафия.jpg", class: "mafia" },
+  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
   { name: "Дон", image: "images/дон.jpg", class: "don" },
-  { name: "Шериф", image: "images/шериф.jpg", class: "sherif" }
+  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
+  { name: "Шериф", image: "images/шериф.jpg", class: "sherif" },
+  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
+  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
+  { name: "Мафия", image: "images/мафия.jpg", class: "mafia" },
+  { name: "Мирный житель", image: "images/мирный.jpg", class: "mirnyj" },
 ];
 
 // Копируем роли для отображения в конце игры в том порядке, в каком они были выданы
