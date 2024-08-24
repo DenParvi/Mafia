@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const roles = [
         { file: 'images/мирный.jpg', role: 'Мир' },
-        { file: 'images/мирный.jpg', role: 'Мир' },
-        { file: 'images/мирный.jpg', role: 'Мир' },
-        { file: 'images/мирный.jpg', role: 'Мир' },
-        { file: 'images/мирный.jpg', role: 'Мир' },
-        { file: 'images/мирный.jpg', role: 'Мир' },
         { file: 'images/мафия.jpg', role: 'Мафия' },
-        { file: 'images/мафия.jpg', role: 'Мафия' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
         { file: 'images/дон.jpg', role: 'Дон' },
-        { file: 'images/шериф.jpg', role: 'Шериф' }
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/шериф.jpg', role: 'Шериф' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/мафия.jpg', role: 'Мафия' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/мирный.jpg', role: 'Мир' }
     ];
 
     // Реализация алгоритма Фишера-Йетса для перемешивания массива
@@ -30,15 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleOrder = [];
 
     cards.forEach((card, index) => {
-        if (shuffledRoles[index].role === 'Шериф') {
-            card.style.backgroundImage = `url('images/cover2.jpg')`;
-        } else if (shuffledRoles[index].role === 'Дон') {
-            card.style.backgroundImage = `url('images/cover3.jpg')`;
-        } else if (shuffledRoles[index].role === 'Мафия') {
-            card.style.backgroundImage = `url('images/cover4.jpg')`;
-        } else {
-            card.style.backgroundImage = `url('images/cover.jpg')`;
-        }
+        card.style.backgroundImage = `url('images/cover.jpg')`;
+    
 
         card.addEventListener('click', () => {
             if (!card.classList.contains('flipped')) {
