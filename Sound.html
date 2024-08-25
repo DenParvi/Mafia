@@ -226,9 +226,7 @@
         function playTimerAudio(file) {
             timerAudio.src = file;
             timerAudio.load();
-            timerAudio.oncanplaythrough = function() {
-                timerAudio.play();
-            };
+            timerAudio.play();
         }
     </script>
 </body>
