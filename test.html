@@ -53,15 +53,10 @@
         <div class="button-row">
             <span class="music-title">Таймер</span>
             <div class="button-column">
-                <button class="button" onclick="startTimerWithSounds(12)">30</button>
-                <button class="button" onclick="startTimerWithSounds(13)">60</button>
-            </div>
-        </div>
-        <div class="button-row">
-            <span class="music-title">Таймер без звука</span>
-            <div class="button-column">
-                <button class="button" onclick="startTimerWithoutSounds(30)">30</button>
-                <button class="button" onclick="startTimerWithoutSounds(60)">60</button>
+                <button class="button" onclick="startTimerWithSounds(30)">30 (со звуком)</button>
+                <button class="button" onclick="startTimerWithSounds(60)">60 (со звуком)</button>
+                <button class="button" onclick="startTimerWithoutSounds(30)">30 (без звука)</button>
+                <button class="button" onclick="startTimerWithoutSounds(60)">60 (без звука)</button>
             </div>
         </div>
     </div>    
@@ -191,7 +186,7 @@
 
                 if (soundTimeLeft === 11) {
                     playTimerAudio('audio/10 секунд.mp3'); 
-                } else if (soundTimeLeft === 0) {
+                } else if (soundTimeLeft === 1) {
                     clearInterval(timerIntervalSound);
                     playTimerAudio('audio/время.mp3'); 
                 }
@@ -211,7 +206,7 @@
                 soundTimeLeft--;
                 updateSoundTimerDisplay(soundTimeLeft);
 
-                if (soundTimeLeft === 0) {
+                if (soundTimeLeft === 1) {
                     clearInterval(timerIntervalSound);
                 }
             }, 1000);
