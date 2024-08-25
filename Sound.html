@@ -53,15 +53,15 @@
         <div class="button-row">
             <span class="music-title">Таймер</span>
             <div class="button-column">
-                <button class="button" onclick="startTimerWithSounds(30)">30</button>
-                <button class="button" onclick="startTimerWithSounds(60)">60</button>
+                <button class="button" onclick="startTimerWithSounds(12)">30</button>
+                <button class="button" onclick="startTimerWithSounds(13)">60</button>
             </div>
         </div>
         <div class="button-row">
             <span class="music-title">Таймер без звука</span>
             <div class="button-column">
-                <button class="button" onclick="startTimerWithoutSounds(30)">30</button>
-                <button class="button" onclick="startTimerWithoutSounds(60)">60</button>
+                <button class="button" onclick="startTimerWithoutSounds(12)">30</button>
+                <button class="button" onclick="startTimerWithoutSounds(13)">60</button>
             </div>
         </div>
     </div>    
@@ -129,9 +129,6 @@
                 currentButton.classList.remove('active');
                 currentButton.style.backgroundColor = '#6200ea';
             };
-            audio.play().finally(() => {
-                audio.src = ''; // Очистка источника после воспроизведения
-            });
         }
 
         function pauseAudio() {
@@ -194,7 +191,7 @@
 
                 if (soundTimeLeft === 11) {
                     playTimerAudio('audio/10 секунд.mp3'); 
-                } else if (soundTimeLeft === 0) {
+                } else if (soundTimeLeft === 1) {
                     clearInterval(timerIntervalSound);
                     playTimerAudio('audio/время.mp3'); 
                 }
