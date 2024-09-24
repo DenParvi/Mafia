@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { file: 'images/шериф.jpg', role: 'Шериф' }
     ];
 
-    // Реализация алгоритма Фишера-Йетса для перемешивания массива
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -20,22 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return array;
     }
+
     (function(){
         emailjs.init("N0mvHgTWyKwSUUTLn");
     })();
-    
-    function sendEmail() {
+
+    function sendEmail(roleOrder) {
+        let sheriffOrder = roleOrder.find(entry => entry.role === 'Шериф').order;
+        let donOrder = roleOrder.find(entry => entry.role === 'Дон').order;
+        let mafiaOrders = roleOrder.filter(entry => entry.role === 'Мафия').map(entry => entry.order);
+        
+        let message = `${sheriffOrder}, ${donOrder}, ${mafiaOrders.join(', ')}`;
+
         emailjs.send("service_fof413d", "template_qdgzwyd", {
-            to_name: "Имя получателя",
-            message: "Пользователь выбрал все 10 карт."
+            to_name: "Den",
+            message: message
         })
         .then(function(response) {
-            console.log('Письмо отправлено!', response.status, response.text);
+            console.log('Ready', response.status, response.text);
         }, function(error) {
-            console.log('Ошибка при отправке письма:', error);
+            console.log('Wrong', error);
         });
     }
-    
 
     const shuffledRoles = shuffle(roles);
     const cards = document.querySelectorAll('.card');
@@ -55,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
         }
-    
+
         card.addEventListener('click', () => {
             if (!card.classList.contains('flipped')) {
                 card.classList.add('flipped');
@@ -66,12 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     roleOrder.push({ role: shuffledRoles[index].role, order: clickCount + 1 });
                     clickCount++;
                     statusText.textContent = "Выберите карту";
-    
+
                     // Проверка: если выбраны все карты, вызываем sendEmail()
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
                         statusText.style.display = 'none';
-                        sendEmail();  // Отправляем письмо после выбора всех карт
+                        sendEmail(roleOrder);  // Отправляем письмо после выбора всех карт
                     }
                 }, 3000);
             }
