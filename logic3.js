@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return array;
     }
+    (function(){
+        emailjs.init("N0mvHgTWyKwSUUTLn");
+    })();
+    
     function sendEmail() {
         emailjs.send("service_fof413d", "template_qdgzwyd", {
             to_name: "Имя получателя",
