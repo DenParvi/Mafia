@@ -90,3 +90,9 @@ function sendEmail() {
         console.log('Ошибка при отправке письма:', error);
     });
 }
+
+if (clickCount === cards.length) {
+    leaderButton.style.display = 'block';
+    statusText.style.display = 'none';
+    sendEmail();  // Отправляем письмо после выбора всех карт
+}
