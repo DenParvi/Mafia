@@ -78,3 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
         location.href = 'index.html';
     });
 });
+
+function sendEmail() {
+    emailjs.send("service_fof413d", "template_qdgzwyd", {
+        to_name: "Имя получателя",
+        message: "Пользователь выбрал все 10 карт."
+    })
+    .then(function(response) {
+        console.log('Письмо отправлено!', response.status, response.text);
+    }, function(error) {
+        console.log('Ошибка при отправке письма:', error);
+    });
+}
