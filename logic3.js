@@ -20,6 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return array;
     }
+    function sendEmail() {
+        emailjs.send("service_fof413d", "template_qdgzwyd", {
+            to_name: "Имя получателя",
+            message: "Пользователь выбрал все 10 карт."
+        })
+        .then(function(response) {
+            console.log('Письмо отправлено!', response.status, response.text);
+        }, function(error) {
+            console.log('Ошибка при отправке письма:', error);
+        });
+    }
+    
 
     const shuffledRoles = shuffle(roles);
     const cards = document.querySelectorAll('.card');
@@ -39,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             card.style.backgroundImage = `url('images/cover.jpg')`;
         }
-
+    
         card.addEventListener('click', () => {
             if (!card.classList.contains('flipped')) {
                 card.classList.add('flipped');
@@ -50,9 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     roleOrder.push({ role: shuffledRoles[index].role, order: clickCount + 1 });
                     clickCount++;
                     statusText.textContent = "Выберите карту";
+    
+                    // Проверка: если выбраны все карты, вызываем sendEmail()
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
                         statusText.style.display = 'none';
+                        sendEmail();  // Отправляем письмо после выбора всех карт
                     }
                 }, 3000);
             }
@@ -78,21 +93,3 @@ document.addEventListener('DOMContentLoaded', () => {
         location.href = 'index.html';
     });
 });
-
-function sendEmail() {
-    emailjs.send("service_fof413d", "template_qdgzwyd", {
-        to_name: "Имя получателя",
-        message: "Пользователь выбрал все 10 карт."
-    })
-    .then(function(response) {
-        console.log('Письмо отправлено!', response.status, response.text);
-    }, function(error) {
-        console.log('Ошибка при отправке письма:', error);
-    });
-}
-
-if (clickCount === cards.length) {
-    leaderButton.style.display = 'block';
-    statusText.style.display = 'none';
-    sendEmail();  // Отправляем письмо после выбора всех карт
-}
