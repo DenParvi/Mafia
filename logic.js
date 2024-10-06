@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { file: 'images/мирный.jpg', role: 'Мир' },
         { file: 'images/мирный.jpg', role: 'Мир' }
     ];
-
+    // Переменная для контроля блокировки открытия карты
+    let isCardFlipping = false;
     // Реализация алгоритма Фишера-Йетса для перемешивания массива
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -31,10 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach((card, index) => {
         card.style.backgroundImage = `url('images/cover.jpg')`;
-    
 
         card.addEventListener('click', () => {
-            if (!card.classList.contains('flipped')) {
+            // Проверяем, заблокировано ли открытие новой карты
+            if (!card.classList.contains('flipped') && !isCardFlipping) {
+                // Блокируем возможность открывать карты
+                isCardFlipping = true;
                 card.classList.add('flipped');
                 card.style.backgroundImage = `url('${shuffledRoles[index].file}')`;
                 statusText.textContent = shuffledRoles[index].role;
@@ -43,11 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     roleOrder.push({ role: shuffledRoles[index].role, order: clickCount + 1 });
                     clickCount++;
                     statusText.textContent = "Выберите карту";
+                    isCardFlipping = false; // Разблокируем открытие новой карты
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
                         statusText.style.display = 'none';
                     }
-                }, 3000);
+                }, 2000);
             }
         });
     });
