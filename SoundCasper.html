@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Голос Мафии</title>
+    <link rel="stylesheet" href="styles_sound.css">
+   
+</head>
+<body>
+    <button id="backButton" onclick="window.location.href='index.html'">&#x1F3E0</button>
+    <div class="button-container">
+        <div class="button-row">
+            <span class="music-title">Приветствие</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, 'audio/01_Приветствие_2.mp3')">1</button>
+            </div>
+        </div>
+        <div class="button-row">
+            <span class="music-title">Раздача и договорка</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_1.mp3')">1</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_2.mp3')">2</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_3.mp3')">3</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_4.mp3')">4</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_5.mp3')">5</button>
+                <button class="button" onclick="playAudio(this, 'audio/05_раздача и договорка_6.mp3')">6</button>
+            </div>
+        </div>
+        <div class="button-row">
+            <span class="music-title">Каспер</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, 'audio/Day.mp3')">День</button>
+                <button class="button" onclick="playAudio(this, 'audio/Night.mp3')">Ночь</button>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <span class="music-title">Отстрел</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_1.mp3')">1</button>
+                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_2.mp3')">2</button>
+                <button class="button" onclick="playAudio(this, 'audio/04_Обычная ночь_3.mp3')">3</button>
+            </div>
+        </div>
+        <div class="button-row">
+            <span class="music-title">Таймер</span>
+            <div class="button-column">
+                <button class="button" onclick="playAudio(this, 'audio/30сек.mp3')">30</button>
+                <button class="button" onclick="playAudio(this, 'audio/60сек.mp3')">60</button>
+            </div>
+        </div>
+        
+
+
+
+    </div>    
+
+    <div class="control-buttons">
+        <button class="control-button" onclick="startAudio()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </button>
+        <button class="control-button" onclick="pauseAudio()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+            </svg>
+        </button>
+        <button class="control-button" onclick="resetAudio()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 6h12v12H6z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="timer" id="timer-display">00:00</div>
+    <div class="timer" id="sound-timer-display">00:00</div>
+
+    <!-- Аудио плеер для музыки -->
+    <audio id="audio-player" controls style="display:none;"></audio>
+    <!-- Аудио плеер для таймера -->
+    <audio id="timer-audio-player" controls style="display:none;"></audio>
+
+    <script>
+        let audio = document.getElementById('audio-player');
+        let timerAudio = document.getElementById('timer-audio-player');
+        let timerInterval;
+        let timerIntervalSound;
+        let currentButton;
+        let timerDisplay = document.getElementById('timer-display');
+        let soundTimerDisplay = document.getElementById('sound-timer-display');
+        let soundTimeLeft;
+
+        function playAudio(button, file) {
+            if (currentButton) {
+                currentButton.classList.remove('active');
+                currentButton.style.backgroundColor = '#6200ea';
+            }
+
+            currentButton = button;
+            currentButton.classList.add('active');
+            currentButton.style.backgroundColor = 'green';
+
+            if (audio.src !== file) {
+                audio.src = file;
+                audio.load();
+                audio.oncanplaythrough = function() { 
+                    audio.play();
+                    resetTimer();
+                    startTimer();
+                };
+            } else if (audio.paused) {
+                audio.play();
+                startTimer();
+            }
+
+            audio.onended = function() {
+                currentButton.classList.remove('active');
+                currentButton.style.backgroundColor = '#6200ea';
+            };
+        }
+
+        function pauseAudio() {
+            audio.pause();
+            clearInterval(timerInterval);
+            clearInterval(timerIntervalSound);  // Остановить второй таймер
+        }
+
+        function startAudio() {
+            if (audio.paused) {
+                audio.play();
+                startTimer();
+            }
+            if (soundTimeLeft > 0) {  // Запуск второго таймера с оставшегося времени
+                startSoundTimer(soundTimeLeft);
+            }
+        }
+
+        function resetAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            clearInterval(timerInterval);
+            clearInterval(timerIntervalSound);
+            soundTimeLeft = 0;  // Сбросить оставшееся время на втором таймере
+            updateTimerDisplay('00:00');
+            updateSoundTimerDisplay('00:00');
+            audio.oncanplaythrough = null;
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                let minutes = Math.floor(audio.currentTime / 60);
+                let seconds = Math.floor(audio.currentTime % 60);
+                let timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                updateTimerDisplay(timeString);
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            updateTimerDisplay('00:00');
+        }
+
+        function updateTimerDisplay(time) {
+            timerDisplay.textContent = time;
+        }
+
+        /*function startTimerWithSounds(time) {
+            clearInterval(timerIntervalSound);
+            soundTimeLeft = time;  // Сохранить начальное время в переменную
+            updateSoundTimerDisplay(soundTimeLeft);
+            startSoundTimer(soundTimeLeft);
+        }*/
+
+        function startSoundTimer(time) {
+            timerIntervalSound = setInterval(() => {
+                soundTimeLeft--;
+                updateSoundTimerDisplay(soundTimeLeft);
+
+                if (soundTimeLeft === 28) {
+                    playTimerAudio('audio/10 секунд.mp3'); 
+                } else if (soundTimeLeft === 1) {
+                    clearInterval(timerIntervalSound);
+                    playTimerAudio('audio/время.mp3'); 
+                }
+            }, 1000);
+        }
+
+        function updateSoundTimerDisplay(time) {
+            soundTimerDisplay.textContent = `${time}`;
+        }
+
+        function startTimerWithoutSounds(time) {
+            clearInterval(timerIntervalSound);
+            soundTimeLeft = time;
+            updateSoundTimerDisplay(soundTimeLeft);
+
+            timerIntervalSound = setInterval(() => {
+                soundTimeLeft--;
+                updateSoundTimerDisplay(soundTimeLeft);
+
+                if (soundTimeLeft === 0) {
+                    clearInterval(timerIntervalSound);
+                }
+            }, 1000);
+        }
+
+        /*function playTimerAudio(file) {
+            timerAudio.src = file;
+            timerAudio.load();
+            timerAudio.play();
+        }*/
+    </script>
+</body>
+</html>
