@@ -5,10 +5,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    padding-bottom: 70px;
+    padding-top: 70px;
 }
 
 .button {
@@ -90,7 +92,6 @@ body {
 
 #backButton {
     margin: 30px;
-    top: 40px;           /* Отступ сверху */
     width: 50px;        /* Контроль ширины кнопки */
     height: 50px;        /* Высота кнопки */
     padding: 10px 10px;  /* Внутренние отступы для текста кнопки */
