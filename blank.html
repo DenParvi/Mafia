@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма для игры</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            font-size: 12px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        /* Задаем ширину ячеек голосований */
+        .voting-table td {
+            width: 60px;
+        }
+        /* Стили для размещения ПУ № и ЛХ на одной строке */
+        .inline-fields {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .inline-fields label {
+            margin-right: 5px;
+        }
+        /* Разделяем пары столбцов толстой линией */
+        .voting-table td:nth-child(2), 
+        .voting-table td:nth-child(4), 
+        .voting-table td:nth-child(6), 
+        .voting-table td:nth-child(8), 
+        .voting-table td:nth-child(10) {
+            border-right: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="inline-fields">
+            <label>Номер игры: <input type="number" name="pu_number" min="0" max="9" style="width: 50px;" required></label>
+            <label>Победа: <input type="number" name="lh_number_1" min="0" max="9" style="width: 50px;" required>
+            </label>
+        </div>
+
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Ник</th>
+                <th>Фолы</th>
+            </tr>
+            <!-- Создаем 10 строк для игроков -->
+            <tbody id="player-rows"></tbody>
+        </table>
+
+        <div class="inline-fields">
+            <label>ПУ №: <input type="number" name="pu_number" min="0" max="9" style="width: 50px;" required></label>
+            <label>ЛХ: 
+                <input type="number" name="lh_number_1" min="0" max="9" style="width: 30px;" required>
+                <input type="number" name="lh_number_2" min="0" max="9" style="width: 30px;" required>
+                <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            </label>
+        </div>
+        <br><br>
+
+        <label>Шериф проверки:  
+            <input type="number" name="lh_number_1" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_2" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+        </label><br>
+        <label>Дон проверки:  
+            <input type="number" name="lh_number_1" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_2" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+        </label><br>
+        <label>Отстрел:   
+            <input type="number" name="lh_number_1" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_2" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+            <input type="number" name="lh_number_3" min="0" max="9" style="width: 30px;" required>
+
+        </label><br>
+
+        <h3>Голосования:</h3>
+        <table class="voting-table">
+            <thead>
+                <tr>
+                    
+                </tr>
+            </thead>
+            <tbody id="voting-rows"></tbody>
+        </table>
+        
+    </form>
+
+    <script>
+        // Функция для генерации строк таблицы игроков
+        function generatePlayerRows() {
+            const playerRows = document.getElementById('player-rows');
+            for (let i = 1; i <= 10; i++) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${i}</td>
+                    <td><input type="text" name="nickname_${i}"></td>
+                    <td class="checkbox-container">
+                        ${[...Array(4)].map(() => '<input type="checkbox">').join('')}
+                    </td>
+                `;
+                playerRows.appendChild(row);
+            }
+        }
+
+        // Функция для генерации таблицы голосований
+        function generateVotingRows() {
+            const votingRows = document.getElementById('voting-rows');
+            for (let i = 1; i <= 8; i++) { // 8 строк в каждой паре
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    ${[...Array(5)].map(() => `
+                        <td><input type="number" name="vote_pair_${i}_1"></td>
+                        <td><input type="number" name="vote_pair_${i}_2"></td>
+                    `).join('')}
+                `;
+                votingRows.appendChild(row);
+            }
+        }
+
+        // Вызов функций для генерации таблиц
+        generatePlayerRows();
+        generateVotingRows();
+    </script>
+</body>
+</html>
