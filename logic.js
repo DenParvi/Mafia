@@ -1,1 +1,103 @@
-const _0x3996c7=_0x4228;function _0x4228(_0x2ee1e3,_0x5c0053){const _0x49be1e=_0x49be();return _0x4228=function(_0x422818,_0x26f4e1){_0x422818=_0x422818-0x124;let _0x17cecc=_0x49be1e[_0x422818];return _0x17cecc;},_0x4228(_0x2ee1e3,_0x5c0053);}function _0x49be(){const _0x31886a=['5276159LbZHcI','addEventListener','then','Ready','Den','querySelectorAll','push','N0mvHgTWyKwSUUTLn','innerHTML','file','role','join','find','roles-table','3HzfcWy','Мафия','log','3155036ZnmlcY','length','click','getElementById','forEach','insertRow','home-button','54rYNuNy','flipped','url(\x27images/cover.jpg\x27)','filter','template_qdgzwyd','976705PffPwb','style','1598832jnUnHa','none','.card','images/дон.jpg','send','index.html','backgroundImage','status','Wrong','66385xeqXkg','display','Выберите\x20карту','images/мафия.jpg','table','opacity','block','url(\x27','service_fof413d','classList','Мир','textContent','map','138MxiEdp','floor','add','random','images/мирный.jpg','querySelector','.grid','Дон','DOMContentLoaded','text','order','href','Шериф','2598830jSsnxz','leader-button','6344076GPyOvA'];_0x49be=function(){return _0x31886a;};return _0x49be();}(function(_0x59f257,_0x4bd816){const _0x2a3886=_0x4228,_0x3336e8=_0x59f257();while(!![]){try{const _0x274d1e=-parseInt(_0x2a3886(0x167))/0x1+-parseInt(_0x2a3886(0x15b))/0x2+-parseInt(_0x2a3886(0x158))/0x3*(-parseInt(_0x2a3886(0x149))/0x4)+parseInt(_0x2a3886(0x12d))/0x5*(-parseInt(_0x2a3886(0x13a))/0x6)+parseInt(_0x2a3886(0x14a))/0x7+-parseInt(_0x2a3886(0x124))/0x8+-parseInt(_0x2a3886(0x162))/0x9*(-parseInt(_0x2a3886(0x147))/0xa);if(_0x274d1e===_0x4bd816)break;else _0x3336e8['push'](_0x3336e8['shift']());}catch(_0x35d052){_0x3336e8['push'](_0x3336e8['shift']());}}}(_0x49be,0xccfb6),document['addEventListener'](_0x3996c7(0x142),()=>{const _0x117d40=_0x3996c7,_0x301fb4=[{'file':_0x117d40(0x13e),'role':_0x117d40(0x137)},{'file':_0x117d40(0x130),'role':_0x117d40(0x159)},{'file':_0x117d40(0x13e),'role':_0x117d40(0x137)},{'file':_0x117d40(0x127),'role':_0x117d40(0x141)},{'file':_0x117d40(0x13e),'role':'Мир'},{'file':'images/шериф.jpg','role':_0x117d40(0x146)},{'file':_0x117d40(0x13e),'role':_0x117d40(0x137)},{'file':_0x117d40(0x130),'role':_0x117d40(0x159)},{'file':'images/мирный.jpg','role':'Мир'},{'file':_0x117d40(0x13e),'role':_0x117d40(0x137)}];let _0x251751=![];function _0x330c4e(_0x5e03ba){const _0x3cc17c=_0x117d40;for(let _0xd80b7b=_0x5e03ba['length']-0x1;_0xd80b7b>0x0;_0xd80b7b--){const _0xf71d1=Math[_0x3cc17c(0x13b)](Math[_0x3cc17c(0x13d)]()*(_0xd80b7b+0x1));[_0x5e03ba[_0xd80b7b],_0x5e03ba[_0xf71d1]]=[_0x5e03ba[_0xf71d1],_0x5e03ba[_0xd80b7b]];}return _0x5e03ba;}(function(){const _0x11c7d5=_0x117d40;emailjs['init'](_0x11c7d5(0x151));}());function _0x5f457c(_0x12426b){const _0x473ba4=_0x117d40;let _0x125a8f=_0x12426b[_0x473ba4(0x156)](_0x1f2f79=>_0x1f2f79['role']==='Шериф')['order'],_0x7f558a=_0x12426b[_0x473ba4(0x156)](_0x54bbb3=>_0x54bbb3[_0x473ba4(0x154)]===_0x473ba4(0x141))[_0x473ba4(0x144)],_0x5b77ef=_0x12426b[_0x473ba4(0x165)](_0x43a684=>_0x43a684[_0x473ba4(0x154)]===_0x473ba4(0x159))[_0x473ba4(0x139)](_0xbdfa4d=>_0xbdfa4d[_0x473ba4(0x144)]),_0x462382=''+_0x125a8f,_0x2f3af8=_0x7f558a+',\x20'+_0x5b77ef[_0x473ba4(0x155)](',\x20');emailjs[_0x473ba4(0x128)](_0x473ba4(0x135),_0x473ba4(0x166),{'to_name':_0x473ba4(0x14e),'message_sh':_0x462382,'message_mf':_0x2f3af8})[_0x473ba4(0x14c)](function(_0x117390){const _0x583181=_0x473ba4;console[_0x583181(0x15a)](_0x583181(0x14d),_0x117390[_0x583181(0x12b)],_0x117390[_0x583181(0x143)]);},function(_0x10812c){const _0x4c1991=_0x473ba4;console[_0x4c1991(0x15a)](_0x4c1991(0x12c),_0x10812c);});}const _0x1eca6a=_0x330c4e(_0x301fb4),_0x3b58dc=document[_0x117d40(0x14f)](_0x117d40(0x126)),_0x92f31b=document[_0x117d40(0x13f)](_0x117d40(0x140)),_0x57dfaa=document['getElementById'](_0x117d40(0x148)),_0x40d581=document['getElementById']('status-text');let _0x43a06a=0x0,_0x32b679=[];_0x3b58dc[_0x117d40(0x15f)]((_0x583c15,_0x11d1e3)=>{const _0x3478a4=_0x117d40;_0x583c15['style'][_0x3478a4(0x12a)]=_0x3478a4(0x164),_0x583c15['addEventListener'](_0x3478a4(0x15d),()=>{const _0x2911c3=_0x3478a4;!_0x583c15[_0x2911c3(0x136)]['contains'](_0x2911c3(0x163))&&!_0x251751&&(_0x251751=!![],_0x583c15['classList'][_0x2911c3(0x13c)](_0x2911c3(0x163)),_0x583c15[_0x2911c3(0x168)][_0x2911c3(0x12a)]=_0x2911c3(0x134)+_0x1eca6a[_0x11d1e3][_0x2911c3(0x153)]+'\x27)',_0x40d581['textContent']=_0x1eca6a[_0x11d1e3][_0x2911c3(0x154)],setTimeout(()=>{const _0xd762f2=_0x2911c3;_0x583c15[_0xd762f2(0x168)][_0xd762f2(0x132)]=0x0,_0x32b679[_0xd762f2(0x150)]({'role':_0x1eca6a[_0x11d1e3][_0xd762f2(0x154)],'order':_0x43a06a+0x1}),_0x43a06a++,_0x40d581[_0xd762f2(0x138)]=_0xd762f2(0x12f),_0x251751=![],_0x43a06a===_0x3b58dc[_0xd762f2(0x15c)]&&(_0x57dfaa[_0xd762f2(0x168)][_0xd762f2(0x12e)]=_0xd762f2(0x133),_0x40d581[_0xd762f2(0x168)][_0xd762f2(0x12e)]=_0xd762f2(0x125),_0x5f457c(_0x32b679));},0x7d0));});}),_0x57dfaa[_0x117d40(0x14b)](_0x117d40(0x15d),()=>{const _0x24cf2a=_0x117d40;_0x92f31b[_0x24cf2a(0x168)]['display']=_0x24cf2a(0x125),_0x57dfaa[_0x24cf2a(0x168)]['display']='none',_0x40d581[_0x24cf2a(0x168)][_0x24cf2a(0x12e)]='none',_0x32b679['forEach'](_0x257173=>{const _0x12a166=_0x24cf2a,_0x1fdd6f=document['getElementById'](_0x12a166(0x157))[_0x12a166(0x160)](),_0x26d6c1=_0x1fdd6f['insertCell'](0x0),_0x4a6fb6=_0x1fdd6f['insertCell'](0x1);_0x26d6c1[_0x12a166(0x152)]=_0x257173[_0x12a166(0x144)],_0x4a6fb6[_0x12a166(0x152)]=_0x257173['role'];}),document[_0x24cf2a(0x15e)](_0x24cf2a(0x157))[_0x24cf2a(0x168)][_0x24cf2a(0x12e)]=_0x24cf2a(0x131),document[_0x24cf2a(0x15e)](_0x24cf2a(0x161))[_0x24cf2a(0x168)][_0x24cf2a(0x12e)]='block';}),document[_0x117d40(0x15e)](_0x117d40(0x161))[_0x117d40(0x14b)](_0x117d40(0x15d),()=>{const _0x784a97=_0x117d40;location[_0x784a97(0x145)]=_0x784a97(0x129);});}));
+document.addEventListener('DOMContentLoaded', () => {
+    const roles = [
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/мафия.jpg', role: 'Мафия' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/дон.jpg', role: 'Дон' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/шериф.jpg', role: 'Шериф' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/мафия.jpg', role: 'Мафия' },
+        { file: 'images/мирный.jpg', role: 'Мир' },
+        { file: 'images/мирный.jpg', role: 'Мир' }
+    ];
+    // Переменная для контроля блокировки открытия карты
+    let isCardFlipping = false;
+    // Реализация алгоритма Фишера-Йетса для перемешивания массива
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    (function(){
+        emailjs.init("N0mvHgTWyKwSUUTLn");
+    })();
+    // Дополнительный код
+    function sendEmail(roleOrder) {
+        let sheriffOrder = roleOrder.find(entry => entry.role === 'Шериф').order;
+        let donOrder = roleOrder.find(entry => entry.role === 'Дон').order;
+        let mafiaOrders = roleOrder.filter(entry => entry.role === 'Мафия').map(entry => entry.order);
+        
+        let message = `${sheriffOrder}`;
+        let to_name = `${donOrder}, ${mafiaOrders.join(', ')}`;
+
+        emailjs.send("service_fof413d", "template_qdgzwyd", {
+            to_name: "Den",
+            message: message
+        })
+        .then(function(response) {
+            console.log('Ready', response.status, response.text);
+        }, function(error) {
+            console.log('Wrong', error);
+        });
+    }
+
+
+    const shuffledRoles = shuffle(roles);
+    const cards = document.querySelectorAll('.card');
+    const grid = document.querySelector('.grid');
+    const leaderButton = document.getElementById('leader-button');
+    const statusText = document.getElementById('status-text');
+    let clickCount = 0;
+    let roleOrder = [];
+
+    cards.forEach((card, index) => {
+        card.style.backgroundImage = `url('images/cover.jpg')`;
+    
+
+        card.addEventListener('click', () => {
+            // Проверяем, заблокировано ли открытие новой карты
+            if (!card.classList.contains('flipped') && !isCardFlipping) {
+                // Блокируем возможность открывать карты
+                isCardFlipping = true;
+                card.classList.add('flipped');
+                card.style.backgroundImage = `url('${shuffledRoles[index].file}')`;
+                statusText.textContent = shuffledRoles[index].role;
+                setTimeout(() => {
+                    card.style.opacity = 0;
+                    roleOrder.push({ role: shuffledRoles[index].role, order: clickCount + 1 });
+                    clickCount++;
+                    statusText.textContent = "Выберите карту";
+                    isCardFlipping = false; // Разблокируем открытие новой карты
+                    if (clickCount === cards.length) {
+                        leaderButton.style.display = 'block';
+                        statusText.style.display = 'none';
+                        sendEmail(roleOrder);  //доп код
+                    }
+                }, 2000);
+            }
+        });
+    });
+
+    leaderButton.addEventListener('click', () => {
+        grid.style.display = 'none';
+        leaderButton.style.display = 'none';
+        statusText.style.display = 'none';
+        roleOrder.forEach((entry) => {
+            const row = document.getElementById('roles-table').insertRow();
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            cell1.innerHTML = entry.order;
+            cell2.innerHTML = entry.role;
+        });
+        document.getElementById('roles-table').style.display = 'table';
+        document.getElementById('home-button').style.display = 'block';
+    });
+
+    document.getElementById('home-button').addEventListener('click', () => {
+        location.href = 'index.html';
+    });
+});
