@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let to_name = `${donOrder}, ${mafiaOrders.join(', ')}`;
 
         emailjs.send("service_fof413d", "template_qdgzwyd", {
-            to_name: "Den",
+            to_name: to_name,
             message: message
         })
         .then(function(response) {
