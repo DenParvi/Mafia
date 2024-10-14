@@ -22,31 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
 
-    (function(){
-        emailjs.init("N0mvHgTWyKwSUUTLn");
-    })();
-    // Дополнительный код
-    function sendEmail(roleOrder) {
-        let sheriffOrder = roleOrder.find(entry => entry.role === 'Шериф').order;
-        let donOrder = roleOrder.find(entry => entry.role === 'Дон').order;
-        let mafiaOrders = roleOrder.filter(entry => entry.role === 'Мафия').map(entry => entry.order);
-        let message2 = `${donOrder}, ${mafiaOrders.join(', ')}`;
-        let message = `${sheriffOrder}`;
-        
-
-        emailjs.send("service_fof413d", "template_qdgzwyd", {
-            to_name: "Den",
-            message: message,
-            message2: message2
-        })
-        .then(function(response) {
-            console.log('Ready', response.status, response.text);
-        }, function(error) {
-            console.log('Wrong', error);
-        });
-    }
-
-
     const shuffledRoles = shuffle(roles);
     const cards = document.querySelectorAll('.card');
     const grid = document.querySelector('.grid');
@@ -57,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach((card, index) => {
         card.style.backgroundImage = `url('images/cover.jpg')`;
-    
 
         card.addEventListener('click', () => {
             // Проверяем, заблокировано ли открытие новой карты
@@ -76,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
                         statusText.style.display = 'none';
-                        sendEmail(roleOrder);  //доп код
                     }
                 }, 2000);
             }
