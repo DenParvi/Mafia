@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
         emailjs.send("service_fof413d", "template_qdgzwyd", {
-            to_name: "Markus",
+            to_name: "Den",
             message: message,
             message2: message2
         })
