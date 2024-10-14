@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let sheriffOrder = roleOrder.find(entry => entry.role === 'Шериф').order;
         let donOrder = roleOrder.find(entry => entry.role === 'Дон').order;
         let mafiaOrders = roleOrder.filter(entry => entry.role === 'Мафия').map(entry => entry.order);
-        let to_name = `${donOrder}, ${mafiaOrders.join(', ')}`;
+        let message2 = `${donOrder}, ${mafiaOrders.join(', ')}`;
         let message = `${sheriffOrder}`;
         
 
         emailjs.send("service_fof413d", "template_qdgzwyd", {
             to_name: to_name,
-            message: message
+            message: message,
+            message2: message2
         })
         .then(function(response) {
             console.log('Ready', response.status, response.text);
