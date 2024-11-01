@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = 0;
                     roleOrder.push({ role: shuffledRoles[index].role, order: clickCount + 1 });
                     clickCount++;
-                    statusText.textContent = "Выберите карту";
+                    statusText.textContent = String.fromCodePoint(128293) + "ТУРНИР " + String.fromCodePoint(128293);
                     isCardFlipping = false; // Разблокируем открытие новой карты
                     if (clickCount === cards.length) {
                         leaderButton.style.display = 'block';
