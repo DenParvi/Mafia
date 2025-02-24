@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (button.id === 'don') {
                     selectedRole = 'Дон';
-                    infoField.value = 'Кто шериф?';
+                    infoField.value = 'Кого убиваем?';
                     waitingForNumber = true;
                 }
 
@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
             clickCount++;
         } else if (selectedRole === 'Дон') {
             if (!donFirstChoice) {
-                infoField.value = playerRole === 'Шериф' ? 'Шериф' : 'Не шериф';
-                donFirstChoice = number;
-                setTimeout(() => { infoField.value = 'Кого стреляем?'; }, 2000);
-            } else {
                 infoField.value = 'Убит';
                 donTarget = number;
+                setTimeout(() => { infoField.value = 'Кто шериф?'; }, 2000);
+                donFirstChoice = number;
+            } else {
+                infoField.value = playerRole === 'Шериф' ? 'Шериф' : 'Не шериф';
                 setTimeout(() => { infoField.value = ''; }, 1000);
                 waitingForNumber = false;
                 clickCount++;
